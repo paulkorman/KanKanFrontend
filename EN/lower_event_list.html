@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lower event list</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    <!-- Include the jQuery library -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Include the jQuery Mobile library -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/public.css">
+    <style type="text/css">
+        body
+        {
+            background: #f4f4f4;
+        }
+        .nav
+        {
+            background: #000000;
+            color: #ffffff;
+            font: 1.28rem/2.4rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 2.4rem;
+            overflow: hidden;
+            text-align: center;
+        }
+        .main
+        {
+            height: auto;
+            overflow: hidden;
+            padding-bottom: 3.2rem;
+        }
+        .main .searchBox
+        {
+            height: auto;
+            overflow: hidden;
+            padding: .53333rem .8rem;
+        }
+        .main .searchBox .search
+        {
+            height: 2.4rem;
+            overflow: hidden;
+        }
+        .main .searchBox .search input
+        {
+            background: #ffffff;
+            border: 0;
+            box-sizing: border-box;
+            font: 1.06667rem/2.4rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 100%;
+            outline: none;
+            overflow: hidden;
+            padding: 0 .53333rem;
+            width: 100%;
+        }
+        .main .searchBox .search input -webkit-input-placeholder
+        {
+            color: #A1A1A1;
+        }
+        .main .searchBox .search-Btn
+        {
+            height: 2.4rem;
+            margin-top: .53333rem;
+            overflow: hidden;
+        }
+        .main .searchBox .search-Btn button
+        {
+            background: #fa854b;
+            border: 0;
+            border-radius: .26667rem;
+            box-sizing: border-box;
+            color: #ffffff;
+            font: 1.06667rem/1.92rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 100%;
+            outline: none;
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+        }
+        .main .list
+        {
+            height: auto;
+            overflow: hidden;
+        }
+        .main .list ul li
+        {
+            background: #ffffff;
+            border-bottom: 1px solid #A1A1A1;
+            border-top: 1px solid #A1A1A1;
+            height: auto;
+            margin-top: .53333rem;
+            overflow: hidden;
+            padding: .53333rem;
+        }
+        .main .list ul li .shopping
+        {
+            border-bottom: 1px solid #cccccc;
+            height: auto;
+            overflow: hidden;
+            padding-left: 5.33333rem;
+            position: relative;
+        }
+        .main .list ul li .shopping img.sh
+        {
+            height: 4.26667rem;
+            left: .53333rem;
+            position: absolute;
+            top: 0;
+            vertical-align: top;
+            width: 4.26667rem;
+        }
+        .main .list ul li .shopping .shop-ri
+        {
+            min-height: 4.26667rem;
+            overflow: hidden;
+            padding-bottom: .53333rem;
+            padding-right: 3.73333rem;
+            position: relative;
+        }
+        .main .list ul li .shopping .shop-ri .rule
+        {
+            box-sizing: border-box;
+            height: 4.26667rem;
+            overflow: hidden;
+            padding-top: .53333rem;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: 3.2rem;
+        }
+        .main .list ul li .shopping .shop-ri .rule img
+        {
+            height: 1.06667rem;
+            vertical-align: top;
+            width: 1.06667rem;
+        }
+        .main .list ul li .shopping .shop-ri .rule p
+        {
+            color: #000;
+            font: .74667rem/.96rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            margin-top: .53333rem;
+            overflow: hidden;
+        }
+        .main .list ul li .shopping .shop-ri h3
+        {
+            color: #000;
+            font: .85333rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            overflow: hidden;
+        }
+        .main .list ul li .shopping .shop-ri p
+        {
+            color: #444;
+            font: .74667rem/.96rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            margin-top: .26667rem;
+            overflow: hidden;
+        }
+        .main .list ul li .shopping .shop-ri p.mt15
+        {
+            margin-top: .8rem;
+        }
+        .main .list ul li .items
+        {
+            box-sizing: border-box;
+            height: auto;
+            overflow: hidden;
+            padding: .53333rem 2%;
+        }
+        .main .list ul li .items .item
+        {
+            border-right: 1px solid #c0c0c0;
+            display: inline-block;
+            float: left;
+            font: .74667rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            overflow: hidden;
+            text-align: center;
+            width: 32%;
+        }
+        .main .list ul li .items .item:last-child
+        {
+            border-right: 0;
+        }
+        .main .page
+        {
+            height: auto;
+            margin-top: 1.6rem;
+            overflow: hidden;
+            text-align: center;
+        }
+        .main .page a
+        {
+            background: #ffffff;
+            border: 2px solid #fa854b;
+            border-radius: .26667rem;
+            color: #fa854b;
+            display: inline-block;
+            font: .74667rem/1.49333rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 1.49333rem;
+            margin: 0 .26667rem;
+            text-align: center;
+            text-decoration: none;
+            width: 3.73333rem;
+        }
+        .main .page a.on
+        {
+            background: #fa854b;
+            color: #ffffff;
+        }
+        .main .column
+        {
+            border-top: 1px solid #cccccc;
+            bottom: 0;
+            height: auto;
+            left: 0;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            z-index: 999999;
+        }
+        .main .column a
+        {
+            background: #ffffff;
+            border-collapse: collapse;
+            box-sizing: border-box;
+            color: #fa854b;
+            display: inline-block;
+            float: left;
+            font: .85333rem/2.4rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 2.4rem;
+            overflow: hidden;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: top;
+            width: 50%;
+        }
+        .main .column a:last-child
+        {
+            border-left: 1px solid #cccccc;
+        }
+    </style>
+    <style type="text/css">
+        .bargain
+        {
+            height: auto;
+            overflow: hidden;
+            padding-bottom: 0.53333rem;
+        }
+        .bargain .banner
+        {
+            height: 13.86667rem;
+            overflow: hidden;
+            position: relative;
+        }
+        .bargain .banner img
+        {
+            height: 100%;
+            vertical-align: top;
+            width: 100%;
+        }
+        .bargain .banner button
+        {
+            background: #fa854b;
+            border: 0;
+            border-radius: 0.42667rem;
+            color: #ffffff;
+            display: inline-block;
+            font: 0.85333rem/2.4rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 2.4rem;
+            left: 50%;
+            margin-left: -8rem;
+            margin-top: -1.17333rem;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            width: 16rem;
+        }
+        .bargain .banner p
+        {
+            background: rgba(0,0,0,0.7);
+            bottom: 0;
+            color: #ffffff;
+            font: 0.74667rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 1.6rem;
+            left: 0;
+            overflow: hidden;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+        }
+        .bargain .title
+        {
+            color: #000;
+            font: 0.85333rem/2.13333rem -apple-system-font, "Helvetica Neue", sans-serif;
+            font-weight: bold;
+            height: 2.13333rem;
+            overflow: hidden;
+            text-indent: 1.06667rem;
+        }
+        .bargain .items
+        {
+            height: auto;
+            overflow: hidden;
+        }
+        .bargain .items ul li
+        {
+            border-top: 1px solid #cccccc;
+            height: auto;
+            overflow: hidden;
+            padding: 0.42667rem 0;
+        }
+        .bargain .items ul li span
+        {
+            box-sizing: border-box;
+            color: #1e1e1e;
+            display: inline-block;
+            float: left;
+            font: 0.74667rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 1.6rem;
+            overflow: hidden;
+            text-align: center;
+            vertical-align: top;
+            width: 50%;
+        }
+        .bargain .items ul li span:last-child
+        {
+            border-left: 1px solid #cccccc;
+        }
+        .bargain .friends
+        {
+            box-sizing: border-box;
+            height: auto;
+            overflow: hidden;
+            padding: 1.06667rem;
+            text-align: right;
+        }
+        .bargain .friends button
+        {
+            background: #fa854b;
+            color: #ffffff;
+            font: 0.74667rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            overflow: hidden;
+            text-align: center;
+            width: 8.53333rem;
+        }
+        .bargain .userBox
+        {
+            height: auto;
+            overflow: hidden;
+        }
+        .bargain .userBox .top
+        {
+            color: #1e1e1e;
+            font: 0.85333rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 1.6rem;
+            overflow: hidden;
+            padding: 0.53333rem 1.06667rem 0.26667rem 2.66667rem;
+            position: relative;
+            text-indent: 0.53333rem;
+        }
+        .bargain .userBox .top img
+        {
+            border-radius: 50%;
+            height: 1.6rem;
+            left: 1.06667rem;
+            position: absolute;
+            top: 0.53333rem;
+            width: 1.6rem;
+        }
+        .bargain .userBox .c
+        {
+            box-sizing: border-box;
+            color: #1e1e1e;
+            font: 0.74667rem/1.49333rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            overflow: hidden;
+            padding-left: 1.33333rem;
+        }
+        .bargain .userBox .c span
+        {
+            color: #FF652D;
+        }
+        .bargain .bargainSwitch
+        {
+            border: 1px solid #A1A1A1;
+            box-sizing: border-box;
+            height: auto;
+            overflow: hidden;
+        }
+        .bargain .bargainSwitch .titles
+        {
+            box-sizing: border-box;
+            height: auto;
+            overflow: hidden;
+            padding: 0 2%;
+        }
+        .bargain .bargainSwitch .titles .item
+        {
+            color: #000;
+            display: inline-block;
+            font: 0.74667rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 1.6rem;
+            text-align: center;
+            width: 32%;
+        }
+        .bargain .bargainSwitch .titles .item.on
+        {
+            color: #FF652D;
+        }
+        .bargain .bargainSwitch .cBox
+        {
+            height: auto;
+            overflow: hidden;
+        }
+        .bargain .bargainSwitch .cBox p.det
+        {
+            color: #1e1e1e;
+            font: 0.74667rem/1.28rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            overflow: hidden;
+            padding: 0.53333rem;
+            text-align: justify;
+            text-indent: 2em;
+        }
+        .bargain .bargainSwitch .cBox h3
+        {
+            box-sizing: border-box;
+            color: #000;
+            font: 0.96rem/1.49333rem -apple-system-font, "Helvetica Neue", sans-serif;
+            font-weight: bold;
+            height: auto;
+            overflow: hidden;
+            padding-left: 0.8rem;
+        }
+        .bargain .bargainSwitch .cBox dl.sponsorList
+        {
+            height: auto;
+            overflow: hidden;
+        }
+        .bargain .bargainSwitch .cBox dl.sponsorList dt
+        {
+            box-sizing: border-box;
+            color: #000;
+            font: 0.85333rem/1.28rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            margin-top: 0.53333rem;
+            overflow: hidden;
+            padding-left: 0.8rem;
+        }
+        .bargain .bargainSwitch .cBox dl.sponsorList dd
+        {
+            background: #f2f2f2;
+            box-sizing: border-box;
+            display: box;
+            display: -moz-box;
+            display: -webkit-box;
+            height: auto;
+            overflow: hidden;
+            padding: 0.53333rem 0;
+            position: relative;
+        }
+        .bargain .bargainSwitch .cBox dl.sponsorList dd span
+        {
+            border-right: 1px solid #cccccc;
+            box-sizing: border-box;
+            display: inline-block;
+            height: auto;
+            overflow: hidden;
+            padding: 0 0.53333rem;
+            text-align: center;
+            width: 5.33333rem;
+        }
+        .bargain .bargainSwitch .cBox dl.sponsorList dd span img
+        {
+            border-radius: 50%;
+            height: 1.86667rem;
+            vertical-align: top;
+            width: 1.86667rem;
+        }
+        .bargain .bargainSwitch .cBox dl.sponsorList dd span p
+        {
+            color: #000;
+            font: 0.74667rem/0.96rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            margin-top: 0.26667rem;
+            overflow: hidden;
+        }
+        .bargain .bargainSwitch .cBox dl.sponsorList dd div
+        {
+            border-right: 1px solid #cccccc;
+            box-flex: 1;
+            box-sizing: border-box;
+            color: #000;
+            font: 0.74667rem/0.96rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            moz-box-flex: 1;
+            overflow: hidden;
+            padding: 0 0.53333rem;
+            position: relative;
+            text-align: justify;
+            webkit-box-flex: 1;
+        }
+        .bargain .bargainSwitch .cBox dl.sponsorList dd div:last-child
+        {
+            border-right: 0;
+        }
+        .bargain .bargainSwitch .cBox dl.sponsorList dd div.btn
+        {
+            min-width: 5.33333rem;
+            text-align: center;
+        }
+        .bargain .bargainSwitch .cBox dl.sponsorList dd div.btn button
+        {
+            background: #fa854b;
+            border-radius: 0.16rem;
+            color: #ffffff;
+            display: inline-block;
+            font: 0.74667rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 1.6rem;
+            left: 50%;
+            margin-left: -2.13333rem;
+            margin-top: -0.8rem;
+            overflow: hidden;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            width: 4.26667rem;
+        }
+        .bargain .bargainSwitch .cBox dl.recordList
+        {
+            box-sizing: border-box;
+            height: auto;
+            overflow: hidden;
+            padding: 0.8rem;
+        }
+        .bargain .bargainSwitch .cBox dl.recordList dt
+        {
+            background: #fa854b;
+            box-sizing: border-box;
+            display: box;
+            display: -moz-box;
+            display: -webkit-box;
+            height: auto;
+            overflow: hidden;
+        }
+        .bargain .bargainSwitch .cBox dl.recordList dt div
+        {
+            box-flex: 1;
+            color: #ffffff;
+            font: 0.74667rem/1.49333rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 1.49333rem;
+            moz-box-flex: 1;
+            overflow: hidden;
+            text-align: center;
+            webkit-box-flex: 1;
+        }
+        .bargain .bargainSwitch .cBox dl.recordList dd
+        {
+            border-bottom: 1px solid #eeeeee;
+            box-sizing: border-box;
+            display: box;
+            display: -moz-box;
+            display: -webkit-box;
+            height: auto;
+            overflow: hidden;
+            padding: 0.53333rem 0;
+        }
+        .bargain .bargainSwitch .cBox dl.recordList dd div
+        {
+            box-flex: 1;
+            height: auto;
+            moz-box-flex: 1;
+            overflow: hidden;
+            text-align: center;
+            webkit-box-flex: 1;
+        }
+        .bargain .bargainSwitch .cBox dl.recordList dd div img
+        {
+            height: 1.38667rem;
+            vertical-align: top;
+            width: 1.38667rem;
+        }
+        .bargain .bargainSwitch .cBox dl.recordList dd div p
+        {
+            color: #000;
+            font: 0.74667rem/2.24rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: auto;
+            margin-top: 0.26667rem;
+            overflow: hidden;
+        }
+        .bargain .bargainSwitch .cBox dl.recordList dd div p.l
+        {
+            font: 0.74667rem/0.85333rem -apple-system-font, "Helvetica Neue", sans-serif;
+        }
+        .bargain .bargainEvent
+        {
+            border: 1px solid #cccccc;
+            box-sizing: border-box;
+            height: auto;
+            margin-top: 1.06667rem;
+            overflow: hidden;
+            padding: 1.06667rem 0.53333rem;
+        }
+        .bargain .bargainEvent h3
+        {
+            color: #1e1e1e;
+            font: 0.96rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;
+            height: 1.6rem;
+            overflow: hidden;
+            text-align: center;
+        }
+        .bargain .bargainEvent div
+        {
+            box-sizing: border-box;
+            height: auto;
+            overflow: hidden;
+            padding: 0.53333rem 10% 0;
+        }
+        .bargain .bargainEvent div button
+        {
+            background: #fa854b;
+            border-radius: 0.26667rem;
+            color: #ffffff;
+            height: 2.13333rem;
+            width: 100%;
+        }
+    </style>
+    <style type="text/css">
+        body{background:#f4f4f4}
+        .coupon{height:auto;overflow:hidden}
+        .coupon .title{height:auto;overflow:hidden;margin-top:1.06667rem}
+        .coupon .title .t{height:auto;overflow:hidden;font:1.17333rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;text-align:center}
+        .coupon .title .b{height:auto;overflow:hidden;font:.74667rem/.85333rem -apple-system-font, "Helvetica Neue", sans-serif;text-align:center;margin-top:.8rem}.coupon h1{font:.96rem/1.49333rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;height:auto;overflow:hidden;text-align:center;margin-top:1.06667rem}.coupon div.pic{height:auto;overflow:hidden;text-align:center;position:relative;margin-top:.53333rem}.coupon div.pic img{width:8rem;height:8rem;vertical-align:top}.coupon .des{height:auto;overflow:hidden;font:.74667rem/.85333rem -apple-system-font, "Helvetica Neue", sans-serif;height:auto;overflow:hidden;color:#000;text-align:center;margin-top:.53333rem}.coupon .des span{height:auto;overflow:hidden;display:inline-block;line-height:1.6rem;padding:0 1.6rem;border-bottom:1px solid #cccccc}.coupon .timer{height:auto;overflow:hidden;text-align:center;font:.85333rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;margin-top:1.06667rem}.coupon .timer span{height:auto;overflow:hidden;display:inline-block;padding:0 1.6rem;border-bottom:1px solid #cccccc}.coupon .explain{height:auto;overflow:hidden;padding:0 .8rem}.coupon .explain h3{height:auto;overflow:hidden;font:.85333rem/1.28rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;font-weight:400}.coupon .explain p{height:auto;overflow:hidden;font:.74667rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;text-align:justify;color:#000;padding:.53333rem 0}.coupon div.btn{height:auto;overflow:hidden;margin-top:1.06667rem}.coupon div.btn button,.coupon div.btn a{width:100%;height:2.13333rem;text-align:center;color:#ffffff;font:.85333rem/2.13333rem -apple-system-font, "Helvetica Neue", sans-serif;background:#fa854b;border-radius:.26667rem;text-decoration:none;display:inline-block}.coupon .from{height:auto;overflow:auto;padding-bottom:1.6rem}.coupon .from h3{font:.96rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;height:auto;overflow:hidden;text-indent:1.06667rem}.coupon .from div.box{height:auto;overflow:hidden;background:#ffffff;border-top:1px solid #cccccc;margin-top:.53333rem}.coupon .from div.box ul li{height:2.24rem;overflow:hidden;box-sizing:border-box;padding-left:5.33333rem;position:relative;border-bottom:1px solid #cccccc}.coupon .from div.box ul li label{width:5.33333rem;font:.74667rem/2.24rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;height:2.24rem;overflow:hidden;display:inline-block;position:absolute;left:0;top:0;text-indent:.8rem}.coupon .from div.box ul li input{width:100%;height:100%;vertical-align:top;outline:none;border:0;font:.74667rem/1.70667rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000}.coupon .from div.box ul li p{height:100%;font:.74667rem/2.24rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;overflow:hidden}.coupon .notice{height:auto;overflow:hidden;text-align:center;font:.74667rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;margin-top:.53333rem}.coupon .notice input{width:.8rem;height:.8rem;outline:none;vertical-align:top;margin-top:.10667rem;margin-right:.16rem}
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="mainContainer">
+    <!--Popups-->
+    <div data-role="main">
+        <div data-role="popup" id="rule-popup" class="ui-content">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+            <p>Some text rule</p>
+        </div>
+    </div>
+    <!--End Popups-->
+    <div data-reactroot="">
+        <div>
+            <!--<div class="nav">快砍</div>-->
+            <div class="main">
+                <div class="searchBox">
+                    <div class="search">
+                        <input type="text" placeholder="Product Name"></div>
+                    <div class="search-Btn">
+                        <button>Search</button>
+                    </div>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li>
+                            <div class="shopping">
+                                <img src="images/u32.jpg" class="sh">
+                                <div class="shop-ri">
+                                    <a href="#rule-popup" data-rel="popup" class="rule">
+                                        <img src="images/u68.png" alt="">
+                                        <p>Rules</p>
+                                    </a>
+                                    <h3>Nine Yang Juicer</h3>
+                                    <p>Lowest Price: $0.00</p>
+                                    <p class="mt15">Original Price: $199.99</p>
+                                </div>
+                            </div>
+                            <div class="items">
+                                <div class="item">
+                                    <p>Total</p>
+                                    <p>15</p>
+                                </div>
+                                <div class="item">
+                                    <p>Available</p>
+                                    <p>15</p>
+                                </div>
+                                <div class="item clearfix">
+                                    <div class="col-80 lh2">
+                                        Join
+                                    </div>
+                                    <div class="col-20">
+                                        <a class="lh2" href="kankan_home-not_join__e.html"> > </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="shopping">
+                                <img src="images/1.jpg" class="sh">
+                                <div class="shop-ri">
+                                    <a class="rule">
+                                        <img src="images/u68.png" alt="">
+                                        <p>Rules</p>
+                                    </a>
+                                    <h3>Intelligent sweeping robots</h3>
+                                    <p>Lowest Price: $100.00</p>
+                                    <p class="mt15">Original Price: $1399.00</p>
+                                </div>
+                            </div>
+                            <div class="items">
+                                <div class="item">
+                                    <p>Total</p>
+                                    <p>200</p>
+                                </div>
+                                <div class="item">
+                                    <p>Available</p>
+                                    <p>199</p>
+                                </div>
+                                <div class="item clearfix">
+                                    <div class="col-80">
+                                        <p>Current</p>
+                                        <p>$69.99</p>
+                                    </div>
+                                    <div class="col-20">
+                                        <a class="lh2" href="kankan_home-joined-lower_the_price__e.html"> > </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="shopping">
+                                <img src="images/2.jpg" class="sh">
+                                <div class="shop-ri">
+                                    <a class="rule">
+                                        <img src="images/u68.png" alt="">
+                                        <p>Rules</p>
+                                    </a>
+                                    <h3>Automatic cooking machine</h3>
+                                    <p>Lowest Price: $20.00</p>
+                                    <p class="mt15">Original Price: $635</p>
+                                </div>
+                            </div>
+                            <div class="items">
+                                <div class="item">
+                                    <p>Total</p>
+                                    <p>36</p>
+                                </div>
+                                <div class="item">
+                                    <p>Available</p>
+                                    <p>16</p>
+                                </div>
+                                <div class="item clearfix">
+                                    <div class="col-80">
+                                        <p>Current</p>
+                                        <p>$69.99</p>
+                                    </div>
+                                    <div class="col-20">
+                                        <a class="lh2" href="kankan_home-joined-lower_the_price__e.html"> > </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="shopping">
+                                <img src="images/3.jpg" class="sh">
+                                <div class="shop-ri">
+                                    <div class="rule">
+                                        <img src="images/u68.png" alt="">
+                                        <p>Rules</p>
+                                    </div>
+                                    <h3>Air conditioning hang up</h3>
+                                    <p>Lowest Price: $110.00</p>
+                                    <p class="mt15">Original Price: $2300.00</p>
+                                </div>
+                            </div>
+                            <div class="items">
+                                <div class="item">
+                                    <p>Total</p>
+                                    <p>100</p>
+                                </div>
+                                <div class="item">
+                                    <p>Available</p>
+                                    <p>26</p>
+                                </div>
+                                <div class="item clearfix">
+                                    <div class="col-80">
+                                        <p>Current</p>
+                                        <p>$69.99</p>
+                                    </div>
+                                    <div class="col-20">
+                                        <a class="lh2" href="kankan_home-joined-lower_the_price__e.html"> > </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="shopping">
+                                <img src="images/4.jpg" class="sh">
+                                <div class="shop-ri">
+                                    <a class="rule">
+                                        <img src="images/u68.png" alt="">
+                                        <p>Rules</p>
+                                    </a>
+                                    <h3>Braun (BRAUN) electric shaver 5 Series 5040S</h3>
+                                    <p>Lowest Price: $10.00</p>
+                                    <p class="mt15">Original Price: $367</p>
+                                </div>
+                            </div>
+                            <div class="items">
+                                <div class="item">
+                                    <p>Total</p>
+                                    <p>>980</p>
+                                </div>
+                                <div class="item">
+                                    <p>Available</p>
+                                    <p>790</p>
+                                </div>
+                                <div class="item clearfix">
+                                    <div class="col-80">
+                                        <p>Current</p>
+                                        <p>$69.99</p>
+                                    </div>
+                                    <div class="col-20">
+                                        <a class="lh2" href="kankan_home-joined-lower_the_price__e.html"> > </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="shopping">
+                                <img src="images/5.jpg" class="sh">
+                                <div class="shop-ri">
+                                    <a class="rule">
+                                        <img src="images/u68.png" alt="">
+                                        <p>Rules</p>
+                                    </a>
+                                    <h3>Wonderful (Mimir) JD-618 automatic massage foot tub</h3>
+                                    <p>Lowest Price: $200.00</p>
+                                    <p class="mt15">Original Price: $999</p>
+                                </div>
+                            </div>
+                            <div class="items">
+                                <div class="item">
+                                    <p>Total</p>
+                                    <p>70</p>
+                                </div>
+                                <div class="item">
+                                    <p>Available</p>
+                                    <p>22</p>
+                                </div>
+                                <div class="item clearfix">
+                                    <div class="col-80">
+                                        <p>Current</p>
+                                        <p>$69.99</p>
+                                    </div>
+                                    <div class="col-20">
+                                        <a class="lh2" href="kankan_home-joined-lower_the_price__e.html"> > </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="page">
+                    <a href="javascript:;">Prev</a>
+                    <a href="javascript:;" class="on">2</a>
+                    <a href="javascript:;">Next</a>
+                </div>
+                <div class="column">
+                    <a href="lower_event_list.html">Event List</a>
+                    <a href="lower_coupon_list.html">Coupon list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="typio-bookmarklet__container">
+    <ul class="typio-bookmarklet__list">
+        <li class="typio-bookmarklet__item">
+            <span class="typio-bookmarklet__font" style="font-family: pingfang sc regular; font-size:30px;" title="pingfang sc regular">pingfang sc regular</span>
+        </li>
+        <li class="typio-bookmarklet__item">
+            <span class="typio-bookmarklet__font" style="font-family: sans-serif; font-size:26px;" title="sans-serif">sans-serif</span>
+        </li>
+    </ul>
+    <div class="typio-bookmarklet__instructions">
+        <p>First select the fonts you're interested in by clicking on them...</p>
+    </div>
+    <div class="typio-bookmarklet__logo"></div>
+    <button class="typio-bookmarklet__add"></button>
+    <button class="typio-bookmarklet__cancel"></button>
+</div>
+</body>
+</html>
