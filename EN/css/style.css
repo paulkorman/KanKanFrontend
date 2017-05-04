@@ -16,6 +16,7 @@ button {
   position: absolute;
   right: 0;
   bottom: 0;
+  z-index: 100;
   font-size: 0.74667rem;
 }
 .main .list ul li .shopping .detail a {
