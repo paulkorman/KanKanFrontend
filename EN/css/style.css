@@ -155,6 +155,14 @@ button {
 .col-80 {
   width: 80%;
 }
+.default-btn {
+  background: none;
+  color: #333;
+  padding: 0.3rem 0.8rem !important;
+  font-size: 0.74667rem;
+  border-radius: 3px;
+  border: 1px solid #aeaeae;
+}
 .main-btn {
   background: #fa854b;
   color: #ffffff;
@@ -175,13 +183,10 @@ button {
   clear: both;
   visibility: hidden;
 }
-.ui-popup .ui-footer a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-right: 1px solid #aeaeae;
-  font-size: 0.74667rem;
-  text-decoration: none;
-  color: #3e3e3e;
-  line-height: 2.5;
+.modal-header {
+  text-align: right;
+  padding: 5px 15px;
+}
+.modal-header button {
+  background: none;
 }

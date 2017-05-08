@@ -4,14 +4,7 @@
     <meta charset="UTF-8">
     <title>lower event list</title>
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
-    <!-- Include jQuery Mobile stylesheets -->
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-
-    <!-- Include the jQuery library -->
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-    <!-- Include the jQuery Mobile library -->
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/public.css">
     <style type="text/css">
         body
@@ -640,16 +633,18 @@
         .coupon .title .b{height:auto;overflow:hidden;font:.74667rem/.85333rem -apple-system-font, "Helvetica Neue", sans-serif;text-align:center;margin-top:.8rem}.coupon h1{font:.96rem/1.49333rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;height:auto;overflow:hidden;text-align:center;margin-top:1.06667rem}.coupon div.pic{height:auto;overflow:hidden;text-align:center;position:relative;margin-top:.53333rem}.coupon div.pic img{width:8rem;height:8rem;vertical-align:top}.coupon .des{height:auto;overflow:hidden;font:.74667rem/.85333rem -apple-system-font, "Helvetica Neue", sans-serif;height:auto;overflow:hidden;color:#000;text-align:center;margin-top:.53333rem}.coupon .des span{height:auto;overflow:hidden;display:inline-block;line-height:1.6rem;padding:0 1.6rem;border-bottom:1px solid #cccccc}.coupon .timer{height:auto;overflow:hidden;text-align:center;font:.85333rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;margin-top:1.06667rem}.coupon .timer span{height:auto;overflow:hidden;display:inline-block;padding:0 1.6rem;border-bottom:1px solid #cccccc}.coupon .explain{height:auto;overflow:hidden;padding:0 .8rem}.coupon .explain h3{height:auto;overflow:hidden;font:.85333rem/1.28rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;font-weight:400}.coupon .explain p{height:auto;overflow:hidden;font:.74667rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;text-align:justify;color:#000;padding:.53333rem 0}.coupon div.btn{height:auto;overflow:hidden;margin-top:1.06667rem}.coupon div.btn button,.coupon div.btn a{width:100%;height:2.13333rem;text-align:center;color:#ffffff;font:.85333rem/2.13333rem -apple-system-font, "Helvetica Neue", sans-serif;background:#fa854b;border-radius:.26667rem;text-decoration:none;display:inline-block}.coupon .from{height:auto;overflow:auto;padding-bottom:1.6rem}.coupon .from h3{font:.96rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;height:auto;overflow:hidden;text-indent:1.06667rem}.coupon .from div.box{height:auto;overflow:hidden;background:#ffffff;border-top:1px solid #cccccc;margin-top:.53333rem}.coupon .from div.box ul li{height:2.24rem;overflow:hidden;box-sizing:border-box;padding-left:5.33333rem;position:relative;border-bottom:1px solid #cccccc}.coupon .from div.box ul li label{width:5.33333rem;font:.74667rem/2.24rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;height:2.24rem;overflow:hidden;display:inline-block;position:absolute;left:0;top:0;text-indent:.8rem}.coupon .from div.box ul li input{width:100%;height:100%;vertical-align:top;outline:none;border:0;font:.74667rem/1.70667rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000}.coupon .from div.box ul li p{height:100%;font:.74667rem/2.24rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;overflow:hidden}.coupon .notice{height:auto;overflow:hidden;text-align:center;font:.74667rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;margin-top:.53333rem}.coupon .notice input{width:.8rem;height:.8rem;outline:none;vertical-align:top;margin-top:.10667rem;margin-right:.16rem}
     </style>
     <link rel="stylesheet" href="css/style.css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        });
+    </script>
 </head>
 <body>
 <div id="mainContainer">
     <!--Popups-->
-    <div data-role="main">
-        <div data-role="popup" id="rule-popup" class="ui-content">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-            <p>Some text rule</p>
-        </div>
-    </div>
+
     <!--End Popups-->
     <div data-reactroot="">
         <div>
@@ -668,10 +663,10 @@
                             <div class="shopping">
                                 <img src="images/u32.jpg" class="sh">
                                 <div class="shop-ri">
-                                    <a href="#rule-popup" data-rel="popup" class="rule">
+                                    <div class="rule" data-container="body" data-toggle="popover" data-placement="left" data-content="Some text rule.">
                                         <img src="images/u68.png" alt="">
                                         <p>Rules</p>
-                                    </a>
+                                    </div>
                                     <h3>Nine Yang Juicer</h3>
                                     <p>Lowest Price: $0.00</p>
                                     <p class="mt15">Original Price: $199.99</p>
@@ -700,10 +695,10 @@
                             <div class="shopping">
                                 <img src="images/1.jpg" class="sh">
                                 <div class="shop-ri">
-                                    <a class="rule">
+                                    <div class="rule" data-container="body" data-toggle="popover" data-placement="left" data-content="Some text rule.">
                                         <img src="images/u68.png" alt="">
                                         <p>Rules</p>
-                                    </a>
+                                    </div>
                                     <h3>Intelligent sweeping robots</h3>
                                     <p>Lowest Price: $100.00</p>
                                     <p class="mt15">Original Price: $1399.00</p>
@@ -733,10 +728,10 @@
                             <div class="shopping">
                                 <img src="images/2.jpg" class="sh">
                                 <div class="shop-ri">
-                                    <a class="rule">
+                                    <div class="rule" data-container="body" data-toggle="popover" data-placement="left" data-content="Some text rule.">
                                         <img src="images/u68.png" alt="">
                                         <p>Rules</p>
-                                    </a>
+                                    </div>
                                     <h3>Automatic cooking machine</h3>
                                     <p>Lowest Price: $20.00</p>
                                     <p class="mt15">Original Price: $635</p>
@@ -766,7 +761,7 @@
                             <div class="shopping">
                                 <img src="images/3.jpg" class="sh">
                                 <div class="shop-ri">
-                                    <div class="rule">
+                                    <div class="rule" data-container="body" data-toggle="popover" data-placement="left" data-content="Some text rule.">
                                         <img src="images/u68.png" alt="">
                                         <p>Rules</p>
                                     </div>
@@ -799,10 +794,10 @@
                             <div class="shopping">
                                 <img src="images/4.jpg" class="sh">
                                 <div class="shop-ri">
-                                    <a class="rule">
+                                    <div class="rule" data-container="body" data-toggle="popover" data-placement="left" data-content="Some text rule.">
                                         <img src="images/u68.png" alt="">
                                         <p>Rules</p>
-                                    </a>
+                                    </div>
                                     <h3>Braun (BRAUN) electric shaver 5 Series 5040S</h3>
                                     <p>Lowest Price: $10.00</p>
                                     <p class="mt15">Original Price: $367</p>
@@ -832,10 +827,10 @@
                             <div class="shopping">
                                 <img src="images/5.jpg" class="sh">
                                 <div class="shop-ri">
-                                    <a class="rule">
+                                    <div class="rule" data-container="body" data-toggle="popover" data-placement="left" data-content="Some text rule.">
                                         <img src="images/u68.png" alt="">
                                         <p>Rules</p>
-                                    </a>
+                                    </div>
                                     <h3>Wonderful (Mimir) JD-618 automatic massage foot tub</h3>
                                     <p>Lowest Price: $200.00</p>
                                     <p class="mt15">Original Price: $999</p>

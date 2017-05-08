@@ -16,6 +16,7 @@ button {
   position: absolute;
   right: 0;
   bottom: 0;
+  z-index: 100;
   font-size: 0.74667rem;
 }
 .main .list ul li .shopping .detail a {
@@ -70,8 +71,17 @@ button {
   text-align: center;
 }
 .bargain .bargainSwitch .titles {
-  background: #aeaeae;
+  background: #cecece;
   font-size: 1rem;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.bargain .bargainSwitch .titles > a {
+  width: 100%;
+}
+.bargain .bargainSwitch .titles .item.on {
+  background: #202229;
+  color: #f87b3d;
 }
 .bargain .e-detail {
   font-size: 0.74667rem;
@@ -174,4 +184,10 @@ button {
   text-decoration: none;
   color: #3e3e3e;
   line-height: 2.5;
+}
+.modal-header {
+  text-align: right;
+}
+.modal-header button {
+  background-color: none;
 }

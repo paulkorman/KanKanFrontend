@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <title>Redeem coupon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <link href="css/public.css" rel="stylesheet">
     <style type="text/css">
         body{background:#f4f4f4}.nav{height:2.4rem;color:#ffffff;overflow:hidden;text-align:center;font:1.28rem/2.4rem -apple-system-font, "Helvetica Neue", sans-serif;background:#000000}.main{height:auto;overflow:hidden;padding-bottom:3.2rem}.main .searchBox{height:auto;overflow:hidden;padding:.53333rem .8rem}.main .searchBox .search{height:2.4rem;overflow:hidden}.main .searchBox .search input{width:100%;height:100%;overflow:hidden;border:0;background:#ffffff;font:1.06667rem/2.4rem -apple-system-font, "Helvetica Neue", sans-serif;box-sizing:border-box;padding:0 .53333rem;outline:none}.main .searchBox .search input -webkit-input-placeholder{color:#A1A1A1}.main .searchBox .search-Btn{height:2.4rem;overflow:hidden;margin-top:.53333rem}.main .searchBox .search-Btn button{height:100%;width:100%;overflow:hidden;color:#ffffff;font:1.06667rem/1.92rem -apple-system-font, "Helvetica Neue", sans-serif;box-sizing:border-box;text-align:center;background:#fa854b;border-radius:.26667rem;border:0;outline:none}.main .list{height:auto;overflow:hidden}.main .list ul li{height:auto;overflow:hidden;padding:.53333rem;background:#ffffff;border-top:1px solid #A1A1A1;border-bottom:1px solid #A1A1A1;margin-top:.53333rem}.main .list ul li .shopping{height:auto;overflow:hidden;padding-left:5.33333rem;position:relative;border-bottom:1px solid #cccccc}.main .list ul li .shopping img.sh{width:4.26667rem;height:4.26667rem;vertical-align:top;position:absolute;left:.53333rem;top:0}.main .list ul li .shopping .shop-ri{min-height:4.26667rem;overflow:hidden;position:relative;padding-right:3.73333rem;padding-bottom:.53333rem}.main .list ul li .shopping .shop-ri .rule{position:absolute;width:3.2rem;height:4.26667rem;overflow:hidden;right:0;top:0;box-sizing:border-box;padding-top:.53333rem;text-align:center}.main .list ul li .shopping .shop-ri .rule img{width:1.06667rem;height:1.06667rem;vertical-align:top}.main .list ul li .shopping .shop-ri .rule p{font:.74667rem/.96rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;height:auto;overflow:hidden;margin-top:.53333rem}.main .list ul li .shopping .shop-ri h3{height:auto;overflow:hidden;font:.85333rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000}.main .list ul li .shopping .shop-ri p{height:auto;overflow:hidden;font:.74667rem/.96rem -apple-system-font, "Helvetica Neue", sans-serif;color:#444;margin-top:.26667rem}.main .list ul li .shopping .shop-ri p.mt15{margin-top:.8rem}.main .list ul li .items{height:auto;overflow:hidden;box-sizing:border-box;padding:.53333rem 2%}.main .list ul li .items .item{width:32%;height:auto;overflow:hidden;border-right:1px solid #c0c0c0;display:inline-block;text-align:center;font:.74667rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;float:left}.main .list ul li .items .item:last-child{border-right:0;line-height:2.13333rem}.main .page{height:auto;overflow:hidden;text-align:center;margin-top:1.6rem}.main .page a{width:3.73333rem;height:1.49333rem;display:inline-block;text-align:center;font:.74667rem/1.49333rem -apple-system-font, "Helvetica Neue", sans-serif;border:2px solid #fa854b;color:#fa854b;margin:0 .26667rem;background:#ffffff;border-radius:.26667rem;text-decoration:none}.main .page a.on{background:#fa854b;color:#ffffff}.main .column{height:auto;overflow:hidden;position:fixed;left:0;bottom:0;width:100%;z-index:999999;border-top:1px solid #cccccc}.main .column a{width:50%;height:2.4rem;overflow:hidden;display:inline-block;color:#fa854b;box-sizing:border-box;text-align:center;font:.85333rem/2.4rem -apple-system-font, "Helvetica Neue", sans-serif;border-collapse:collapse;vertical-align:top;float:left;text-decoration:none;background:#ffffff}.main .column a:last-child{border-left:1px solid #cccccc}
@@ -18,34 +16,33 @@
         body{background:#f4f4f4}.coupon{height:auto;overflow:hidden}.coupon .title{height:auto;overflow:hidden;margin-top:1.06667rem}.coupon .title .t{height:auto;overflow:hidden;font:1.17333rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;text-align:center}.coupon .title .b{height:auto;overflow:hidden;font:.74667rem/.85333rem -apple-system-font, "Helvetica Neue", sans-serif;text-align:center;margin-top:.8rem}.coupon h1{font:.96rem/1.49333rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;height:auto;overflow:hidden;text-align:center;margin-top:1.06667rem}.coupon div.pic{height:auto;overflow:hidden;text-align:center;position:relative;margin-top:.53333rem}.coupon div.pic img{width:8rem;height:8rem;vertical-align:top}.coupon .des{height:auto;overflow:hidden;font:.74667rem/.85333rem -apple-system-font, "Helvetica Neue", sans-serif;height:auto;overflow:hidden;color:#000;text-align:center;margin-top:.53333rem}.coupon .des span{height:auto;overflow:hidden;display:inline-block;line-height:1.6rem;padding:0 1.6rem;border-bottom:1px solid #cccccc}.coupon .timer{height:auto;overflow:hidden;text-align:center;font:.85333rem/1.6rem -apple-system-font, "Helvetica Neue", sans-serif;margin-top:1.06667rem}.coupon .timer span{height:auto;overflow:hidden;display:inline-block;padding:0 1.6rem;border-bottom:1px solid #cccccc}.coupon .explain{height:auto;overflow:hidden;padding:0 .8rem}.coupon .explain h3{height:auto;overflow:hidden;font:.85333rem/1.28rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;font-weight:400}.coupon .explain p{height:auto;overflow:hidden;font:.74667rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;text-align:justify;color:#000;padding:.53333rem 0}.coupon div.btn{height:auto;overflow:hidden;margin-top:1.06667rem}.coupon div.btn button,.coupon div.btn a{width:100%;height:2.13333rem;text-align:center;color:#ffffff;font:.85333rem/2.13333rem -apple-system-font, "Helvetica Neue", sans-serif;background:#fa854b;border-radius:.26667rem;text-decoration:none;display:inline-block}.coupon .from{height:auto;overflow:auto;padding-bottom:1.6rem}.coupon .from h3{font:.96rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;height:auto;overflow:hidden;text-indent:1.06667rem}.coupon .from div.box{height:auto;overflow:hidden;background:#ffffff;border-top:1px solid #cccccc;margin-top:.53333rem}.coupon .from div.box ul li{height:2.24rem;overflow:hidden;box-sizing:border-box;padding-left:5.33333rem;position:relative;border-bottom:1px solid #cccccc}.coupon .from div.box ul li label{width:5.33333rem;font:.74667rem/2.24rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;height:2.24rem;overflow:hidden;display:inline-block;position:absolute;left:0;top:0;text-indent:.8rem}.coupon .from div.box ul li input{width:100%;height:100%;vertical-align:top;outline:none;border:0;font:.74667rem/1.70667rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000}.coupon .from div.box ul li p{height:100%;font:.74667rem/2.24rem -apple-system-font, "Helvetica Neue", sans-serif;color:#000;overflow:hidden}.coupon .notice{height:auto;overflow:hidden;text-align:center;font:.74667rem/1.06667rem -apple-system-font, "Helvetica Neue", sans-serif;margin-top:.53333rem}.coupon .notice input{width:.8rem;height:.8rem;outline:none;vertical-align:top;margin-top:.10667rem;margin-right:.16rem}
     </style>
     <link href="css/style.css" rel="stylesheet">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $('#redeem-modal').modal();
+    </script>
 </head>
 <body>
 <div id="mainContainer">
-    <!--Popups-->
-    <div data-role="main" class="ui-content popup" style="padding: 0">
-        <div data-role="popup" id="myPopupDialog">
-            <!--<div data-role="header">-->
-                <!--<h1>Header Text</h1>-->
-            <!--</div>-->
 
-            <div data-role="main" class="ui-content">
-                <p>This coupon will be marked as redeemed. You can't use it any more!</p>
-            </div>
-
-            <div data-role="footer">
-                <div class="clearfix">
-                    <div class="col-50 text-center">
-                        <a href="#" data-rel="back">Go Back</a>
-                    </div>
-                    <div class="col-50 text-center">
-                        <a href="#">I'm Sure</a>
-                    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="redeem-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
-
+                <div class="modal-body">
+                    This coupon will be marked as redeemed. You can't use it any more!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="default-btn" data-dismiss="modal">Go Back</button>
+                    <button type="button" class="main-btn">I'm Sure</button>
+                </div>
             </div>
         </div>
     </div>
-    <!--End Popups-->
+    <!--End Modal-->
     <div data-reactroot="">
 
         <div class="coupon">
@@ -71,7 +68,7 @@
                     <h3>Redeem Rule:</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</p>
                     <div class="btn">
-                        <a href="#myPopupDialog" data-rel="popup" data-position-to="window" data-transition="fade" class="item" href="">Redeem</a>
+                        <a href="javascript:;" data-toggle="modal" data-target="#redeem-modal">Redeem</a>
                     </div>
                     <div class="des">
                         This button is only for machant  use!
